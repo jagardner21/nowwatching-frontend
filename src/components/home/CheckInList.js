@@ -17,7 +17,7 @@ const CheckInList = (props) => {
 function mapStateToProps(state) {
     return {
         users: state.users.all,
-        loggedInUser: state.loggedInUser,
+        loggedInUser: state.users.loggedInUser,
         checkIns: state.checkIns.all
     }
 }

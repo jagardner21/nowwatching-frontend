@@ -18,10 +18,10 @@ const TopNav = (props) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink className="top-nav-link" to="/profile">Profile</NavLink>
+              <NavLink onClick={toggleNavbar} className="top-nav-link" to="/profile">Profile</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="top-nav-link" to="/new-check-in">New Check-in</NavLink>
+              <NavLink onClick={toggleNavbar} className="top-nav-link" to="/new-check-in">New Check-in</NavLink>
             </NavItem>
             {/* Friends list? -> or a list of users until figuring out how to only show friends and add functionality for searching users to add/remove friends */}
           </Nav>

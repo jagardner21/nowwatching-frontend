@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 class CheckIn extends Component {
     state = {
-        editHidden: true
+        //cannot find a use for state 
     }
 
     // FUTURE STATE - have an option to check in as "now watching" and change to "watched" after viewing, then you add rating and review
@@ -17,11 +17,7 @@ class CheckIn extends Component {
         let checkInUserName = this.props.users.filter(user => user.id === user_id)[0].name
         let imageSrc = 'https://lorempixel.com/150/150'
 
-        if (loggedInUser.id == user_id){
-            this.setState({
-                editHidden: false
-            })
-        }
+        
         // learn how to modal, YO...
         // const toggleModal = () => {
         //     this.setState({
@@ -29,6 +25,7 @@ class CheckIn extends Component {
         //     })
         // }
         
+        let editHidden = (user_id !== loggedInUser.id)
         return (
             <div className="check-in-card mr-4 ml-4 pt-4">
                 <Media className="mb-3">
@@ -54,7 +51,7 @@ class CheckIn extends Component {
                     </Media>
                     
                     {/* Button to bring up modal that will have button for edit check in and delete check in ("are you sure?" for delete?) */}
-                    <Button hidden={this.state.editHidden}>...</Button>
+                    <Button hidden={editHidden}>...</Button>
                     {/* learn how to modal, YO */}
                     {/* <Modal></Modal> */}
                     

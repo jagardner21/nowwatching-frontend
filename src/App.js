@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { getUsers } from './store/users/actions'
 import { getCheckIns } from './store/check-ins/actions'
 import CheckInList from './components/home/CheckInList'
+import NewCheckInForm from './components/check_ins/NewCheckInForm'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import TopNav from './components/layout/TopNav'
 import { Container, Row, Col } from 'reactstrap'
@@ -28,7 +29,7 @@ function App() {
               <Switch>
                 <Route exact path="/" component={CheckInList}/>
                 {/* <Route path="/profile/:id" component={UserProfile}/> */}
-                {/* <Route path="/new-check-in" component={NewCheckInForm} */}
+                <Route path="/new-check-in" component={NewCheckInForm} />
               </Switch>
             </Col>
             <Col xs="2" />
