@@ -1,7 +1,13 @@
 import { GET_USERS_PENDING, GET_ONE_USER_PENDING, ADD_USER_PENDING, EDIT_USER_PENDING, DELETE_USER_PENDING, GET_USERS_SUCCESS, GET_ONE_USER_SUCCESS, GET_ONE_USER_FAILED, ADD_USER_SUCCESS, GET_USERS_FAILED, ADD_USER_FAILED, EDIT_USER_FAILED, DELETE_USER_FAILED, EDIT_USER_SUCCESS, DELETE_USER_SUCCESS } from './constants'
 
+//logged in user hard coded until I learn how to use browser local storage
 let initialState = {
     all: [],
+    loggedInUser: {
+        id: 1,
+        name: "Henderson Mccoy",
+        email: "hendersonmccoy@comtest.com"
+    },
     oneUser: {},
     err: {}
 }
