@@ -14,7 +14,8 @@ class CheckIn extends Component {
     render() {
         let loggedInUser = this.props.loggedInUser ? this.props.loggedInUser : {}
         let { user_id, movie_name, rating, review_body } = this.props.checkIn
-        let checkInUserName = this.props.users.filter(user => user.id === user_id)[0].name
+        console.log('PROPS.USERS', this.props.users.filter(user => user.id === user_id)[0])
+        let checkInUserName = this.props.users.filter(user => user.id === user_id)[0].name ? this.props.users.filter(user => user.id === user_id)[0].name : ''
         let imageSrc = 'https://lorempixel.com/150/150'
 
         
@@ -34,7 +35,7 @@ class CheckIn extends Component {
                     </Media>
                     <Media body>
                         <Media heading>
-                            {checkInUserName}
+                            {checkInUserName ? checkInUserName : ''}
                         </Media>
                         <Media className="mb-1">
                             watched <span className="movie-title ml-1">{movie_name}</span>                        

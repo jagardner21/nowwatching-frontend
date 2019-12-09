@@ -23,27 +23,28 @@ class NewCheckInForm extends Component {
     // The handler for the submit event, i.e. 'onSubmit'
     handleSubmit = e => {
         e.preventDefault()
-        // call some method to deal with the form data
-        this.props.someFunctionFromApp(this.state)
+        console.log(this.state)
+        this.props.dispatch(addCheckIn(this.state))
+        this.props.history.goBack().forceUpdate()
     }
 
     render() {
         const submitEnabled = this.state.movie_name.length > 0
-
+        console.log("THIS.PROPS", this.props.loggedInUser.id)
         //WILL NEED TO ADD ABILITY TO SEARCH MOVIES IN OMDb
         return (
-            <Form className="pb-5">
+            <Form onSubmit={this.handleSubmit} className="pb-5">
                 <FormGroup>
                     <Label>Movie Name</Label>
                     <Input onChange={this.handleChange} type="text" name="movie_name" placeholder="required" />
                 </FormGroup>
                 <FormGroup>
                     <Label>Rating</Label>
-                    <Input min={0} max={5} type="number" name="rating" placeholder="optional" />
+                    <Input onChange={this.handleChange} min={0} max={5} type="number" name="rating" placeholder="optional" />
                 </FormGroup>
                 <FormGroup>
                     <Label>Review</Label>
-                    <Input type="textarea" name="review_body" placeholder="optional"/>
+                    <Input onChange={this.handleChange} type="textarea" name="review_body" placeholder="optional"/>
                 </FormGroup>
                 <Button disabled={!submitEnabled}>Submit</Button>
             </Form>

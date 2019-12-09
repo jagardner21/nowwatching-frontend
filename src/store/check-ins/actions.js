@@ -47,17 +47,16 @@ export const getOneCheckIn = id => {
     }
 }
 
-export const addCheckIn = () => {
+export const addCheckIn = newCheckIn => {
     return dispatch => {
         dispatch({
             type: ADD_CHECK_IN_PENDING
         })
-        axios.put(`${url}/check-ins`)
+        axios.post(`${url}/check-ins`, newCheckIn)
             .then(res => {
-                let newCheckIn = res.json
                 dispatch({
                     type: ADD_CHECK_IN_SUCCESS,
-                    payload: newCheckIn
+                    payload: res.data
                 })
             })
             .catch(error => {

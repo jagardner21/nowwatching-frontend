@@ -28,13 +28,14 @@ export default (state = initialState, action) => {
 
         case GET_CHECK_INS_SUCCESS:
             let checkIns = action.payload
+            
             return {
                 ...state,
                 all: checkIns
             }
 
         // would it be better to filter all by user.id and get rid of oneUser altogether from store state?
-        case GET_ONE_CHECK_IN_SUCCESS: 
+        case GET_ONE_CHECK_IN_SUCCESS:
             let checkIn = action.payload
             return {
                 ...state,
@@ -44,8 +45,8 @@ export default (state = initialState, action) => {
         case ADD_CHECK_IN_SUCCESS: 
             let newCheckIn = action.payload
             return {
-                ...state,
-                all: [newCheckIn, ...state.all]
+                all: state.all.unshift(newCheckIn),
+                ...state
             }
 
         case EDIT_CHECK_IN_SUCCESS:
