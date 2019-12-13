@@ -47,7 +47,7 @@ export const getOneCheckIn = id => {
     }
 }
 
-export const addCheckIn = newCheckIn => {
+export const addCheckIn = (newCheckIn, history) => {
     return dispatch => {
         dispatch({
             type: ADD_CHECK_IN_PENDING
@@ -58,6 +58,7 @@ export const addCheckIn = newCheckIn => {
                     type: ADD_CHECK_IN_SUCCESS,
                     payload: res.data
                 })
+                history.push('/')
             })
             .catch(error => {
                 dispatch({

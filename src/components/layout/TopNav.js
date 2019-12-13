@@ -8,6 +8,8 @@ const TopNav = (props) => {
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
+  let loggedInUserId = props.loggedInUser.id
+  
   return (
     <div>
       <Navbar className="top-nav" dark fixed="top">
@@ -18,7 +20,7 @@ const TopNav = (props) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink onClick={toggleNavbar} className="top-nav-link" to="/profile">Profile</NavLink>
+              <NavLink onClick={toggleNavbar} className="top-nav-link" to={`/profile/${loggedInUserId}`}>Profile</NavLink>
             </NavItem>
             <NavItem>
               <NavLink onClick={toggleNavbar} className="top-nav-link" to="/new-check-in">New Check-in</NavLink>
@@ -31,4 +33,10 @@ const TopNav = (props) => {
   );
 }
 
-export default TopNav;
+const mapStateToProps = state => {
+  return {
+    loggedInUser: state.users.loggedInUser
+  }
+}
+
+export default connect(mapStateToProps)(TopNav);

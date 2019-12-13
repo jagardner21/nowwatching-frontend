@@ -43,7 +43,7 @@ export default (state = initialState, action) => {
             }
 
         case ADD_CHECK_IN_SUCCESS: 
-            let newCheckIn = action.payload
+            let newCheckIn = action.payload[0]
             return {
                 all: state.all.unshift(newCheckIn),
                 ...state
@@ -63,7 +63,7 @@ export default (state = initialState, action) => {
             }
 
         case DELETE_CHECK_IN_SUCCESS: 
-            let deletedCheckIn = action.payload
+            let deletedCheckIn = action.payload[0]
             return {
                 ...state,
                 all: state.all.filter(user => {

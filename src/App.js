@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { getUsers } from './store/users/actions'
 import { getCheckIns } from './store/check-ins/actions'
+import UserProfile from './components/users/UserProfile'
 import CheckInList from './components/home/CheckInList'
 import NewCheckInForm from './components/check_ins/NewCheckInForm'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -28,7 +29,7 @@ function App() {
             <Col xs="8">
               <Switch>
                 <Route exact path="/" component={CheckInList}/>
-                {/* <Route path="/profile/:id" component={UserProfile}/> */}
+                <Route path="/profile/:id" component={UserProfile}/>
                 <Route path="/new-check-in" component={NewCheckInForm} />
               </Switch>
             </Col>

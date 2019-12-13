@@ -16,9 +16,9 @@ const CheckInList = (props) => {
 
 function mapStateToProps(state) {
     return {
-        users: state.userms.all,
+        users: state.users.all,
         loggedInUser: state.users.loggedInUser,
-        checkIns: state.checkIns.all
+        checkIns: state.checkIns.all.sort((a,b) => (a.id < b.id) ? 1 : -1)
     }
 }
 

@@ -24,8 +24,7 @@ class NewCheckInForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         console.log(this.state)
-        this.props.dispatch(addCheckIn(this.state))
-        this.props.history.goBack().forceUpdate()
+        this.props.dispatch(addCheckIn(this.state, this.props.history))
     }
 
     render() {
