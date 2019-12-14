@@ -21,10 +21,8 @@ class CheckIn extends Component {
 
         let { user_id, movie_name, rating, review_body } = this.props.checkIn
 
-        console.log("PROPS", this.props)
-
         let checkInUserName = this.props.users.filter(user => user.id === user_id)[0] ? this.props.users.filter(user => user.id === user_id)[0].name : ''
-        let imageSrc = 'https://lorempixel.com/150/150'
+        let imageSrc = 'https://lorempixel.com/100/100'
 
         
         // learn how to modal, YO...

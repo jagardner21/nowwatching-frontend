@@ -2,6 +2,7 @@
 
 .app {
     background-color: #FFC97B;
+    padding-bottom: 25px;
 }
 .top-nav {
     background-color: #07CAA1;
@@ -31,10 +32,43 @@
     font-weight: bold;
 }
 
-.check-in-card {
-    
+.profile-card-name {
+    font-weight: bold;
+}
+
+.profile-card {
+    padding: 5px;
+}
+
+.profile-email {
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.profile-card-body {
+    padding: 3px;
 }
 
 .check-in-list {
     background-color: whitesmoke;
 }
+
+.edit-header {
+    color: #07CAA1;
+}
+
+.edit-user-form {
+    background-color: whitesmoke;
+    padding-left: 30px;
+    padding-right: 30px; 
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
+}
+
+.profile-checkin-list {
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+}
+
