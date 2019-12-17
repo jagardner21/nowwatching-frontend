@@ -1,4 +1,5 @@
 import { GET_USERS_PENDING, GET_ONE_USER_PENDING, ADD_USER_PENDING, EDIT_USER_PENDING, DELETE_USER_PENDING, GET_USERS_SUCCESS, GET_ONE_USER_SUCCESS, GET_ONE_USER_FAILED, ADD_USER_SUCCESS, GET_USERS_FAILED, ADD_USER_FAILED, EDIT_USER_FAILED, DELETE_USER_FAILED, EDIT_USER_SUCCESS, DELETE_USER_SUCCESS } from './constants'
+import { editUser } from './actions';
 
 //logged in user hard coded until I learn how to use browser local storage
 let initialState = {
@@ -64,7 +65,8 @@ export default (state = initialState, action) => {
                     } else {
                         return user
                     }
-                })
+                }),
+                loggedInUser: editedUser
             }
 
         case DELETE_USER_SUCCESS: 

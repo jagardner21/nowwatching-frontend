@@ -34,7 +34,7 @@ class CheckIn extends Component {
         
         let buttonHidden = (user_id !== loggedInUser.id)
         return (
-            <div className="check-in-card mr-4 ml-4 pt-4">
+            <div className="check-in-card mr-2 ml-2 pt-4">
                 <Media className="mb-3">
                     <Media left className="mr-3">
                         <Media object src={imageSrc} alt="Generic placeholder image" />

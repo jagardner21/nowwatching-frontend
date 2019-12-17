@@ -47,12 +47,12 @@ export const getOneUser = id => {
     }
 }
 
-export const addUser = () => {
+export const addUser = newUser => {
     return dispatch => {
         dispatch({
             type: ADD_USER_PENDING
         })
-        axios.put(`${url}/users`)
+        axios.put(`${url}/users`, newUser)
             .then(res => {
                 let newUser = res.json
                 dispatch({
@@ -69,14 +69,14 @@ export const addUser = () => {
     }
 }
 
-export const editUser = id => {
+export const editUser = (id, editedUser) => {
     return dispatch => {
         dispatch({
             type: EDIT_USER_PENDING
         })
-        axios.patch(`${url}/users/${id}`)
+        console.log("heard")
+        axios.patch(`${url}/users/${id}`, editedUser)
             .then(res => {
-                let editedUser = res.data
                 dispatch({
                     type: EDIT_USER_SUCCESS,
                     payload: editedUser

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Form, FormGroup, Label, Button, Input, Col } from 'reactstrap'
+import { editUser } from '../../store/users/actions'
+import { connect } from 'react-redux'
+import { Form, FormGroup, Label, Button, Input } from 'reactstrap'
 
 class EditUser extends Component {
 
@@ -8,18 +10,20 @@ class EditUser extends Component {
         email: ''
     }
 
-    handleSubmit = () => {
-
+    handleSubmit = e => {
+        e.preventDefault()
+        console.log(this.state)
+        this.props.dispatch(editUser(this.props.loggedInUserId, this.state))
     }
 
     handleChange = e => {
         let { name, value } = e.target
-        this.setState({ [name]: value }, () => console.log())
+        this.setState({ [name]: value })
     }
 
     render() {
         return (
-            <Form className="edit-user-form">
+            <Form className="edit-user-form" onSubmit={this.handleSubmit}>
                 <h4 className="edit-header">Edit User</h4>
                 <FormGroup>
                     <Label>Name </Label>
@@ -34,4 +38,11 @@ class EditUser extends Component {
         )
     }
 }
-export default EditUser
+
+const mapStateToProps = state => {
+    return {
+        loggedInUserId: state.users.loggedInUser.id
+    }
+}
+
+export default connect(mapStateToProps)(EditUser)

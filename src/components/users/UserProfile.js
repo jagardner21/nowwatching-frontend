@@ -10,13 +10,11 @@ const UserProfile = (props) => {
     const [beingEdited, toggleBeingEdited] = useState(false)
 
     let loggedInUser = props.loggedInUser
-    console.log("LOGGED IN USER", loggedInUser)
+    console.log("Logged In User", loggedInUser)
     
     let userCheckIns = props.checkIns.filter(checkIn => {
         return checkIn.user_id == loggedInUser.id
     })
-
-    console.log("USER CHECKINS", userCheckIns)
 
     let displayCheckIns = userCheckIns.map(checkIn => {
         return <CheckIn key={checkIn.id} checkIn={checkIn} users={props.users} loggedInUser={props.loggedInUser}></CheckIn>
@@ -36,7 +34,7 @@ const UserProfile = (props) => {
                             <CardBody>
                                 <CardTitle className="profile-card-name">{loggedInUser.name}</CardTitle>
                                 <CardSubtitle className="profile-email">{loggedInUser.email}</CardSubtitle>
-                                    <Button outline onClick={handleEditToggle} size="sm">{beingEdited ? "Cancel Edit" : "Edit Info"}</Button>
+                                    <Button outline onClick={handleEditToggle} size="sm">{beingEdited ? "Close Edit" : "Edit Info"}</Button>
                             </CardBody>
                         </Card>
                     </Col>
